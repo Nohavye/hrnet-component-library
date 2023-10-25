@@ -1,4 +1,4 @@
-# HRnet-component-library
+# hrnet-component-library
 
 Library of React components created using `vite`.
 
@@ -8,14 +8,15 @@ Run the following command: `npm install @hrnet-public/hrnet-component-library`
 
 ## List of components
 
-### DropDown component
+### Drop-down selector component
 
--   `<DropDown />`
+-   `<DropdownSelector />`
 
     #### Props:
 
     -   `id` : The ID of the dropdown input field.
     -   `items` : The list of items to choose from.
+    -   `placeholder`: The placeholder (optional).
 
     #### Style:
 
