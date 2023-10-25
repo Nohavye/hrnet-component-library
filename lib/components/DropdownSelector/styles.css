@@ -1,0 +1,46 @@
+.hrnet_dropdownselector_positional_wrapper {
+    position: relative !important;
+    box-sizing: content-box !important;
+}
+
+.hrnet_dropdownselector_wrapper {
+    background-color: #e0e0e0;
+    border: 1px solid #202020;
+    color: #202020;
+    border-radius: 10px;
+    padding: 15px;
+    width: 200px;
+    gap: 20px;
+
+    position: absolute !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.hrnet_dropdownselector_input {
+    background-color: transparent;
+    font-size: 18px;
+
+    cursor: pointer !important;
+    border-style: none !important;
+    outline: none !important;
+    width: 100% !important;
+}
+
+.hrnet_dropdownselector_items_wrapper {
+    cursor: pointer !important;
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+}
+
+.hrnet_dropdownselector_item {
+    padding: 10px 10px;
+    border-radius: 5px;
+}
+
+.hrnet_dropdownselector_item:hover {
+    background-color: #d0d0d0;
+}

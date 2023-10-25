@@ -1,0 +1,1 @@
+export { TargetComponent } from './target'
