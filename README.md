@@ -4,7 +4,7 @@ Library of React components created using `vite`.
 
 ## Installation
 
-Run the following command: `npm install @hrnet-public/hrnet-component-library`
+Run the following command: `npm install @hrnet-org/hrnet-component-library`
 
 ## List of components
 
