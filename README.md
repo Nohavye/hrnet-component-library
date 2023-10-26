@@ -33,7 +33,7 @@ Run the following command: `npm install @hrnet-org/hrnet-component-library`
 
     -   The component has a default CSS style. You can override this style using certain predefined CSS classes or through the `classNames` prop :
 
-    To style all the Dropdown components in your project, I recommend using the CSS class `hrnet-dropdownselector-{element}` replacing `{element}` with the name of the targeted item from this list:
+    To style all the Dropdown components in your project, I recommend using the CSS class `hrnet_dropdownselector_{element}` replacing `{element}` with the name of the targeted item from this list:
 
     -   `wrapper` : The main container
     -   `input` : The dropdown input
@@ -43,12 +43,12 @@ Run the following command: `npm install @hrnet-org/hrnet-component-library`
     Example :
 
     ```css
-    .hrnet-dropdownselector-wrapper {
+    .hrnet_dropdownselector_wrapper {
         background-color: white;
         padding: 5px 10px;
     }
 
-    .hrnet-dropdownselector-input {
+    .hrnet_dropdownselector_input {
         font-size: 16px;
     }
     ```
