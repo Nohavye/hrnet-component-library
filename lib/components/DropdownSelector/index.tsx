@@ -3,12 +3,14 @@ import { useEffect, useState } from 'react'
 
 type Props = {
     id: string
+    className?: string | null
     items: Array<string>
     placeholder?: string
 }
 
 export function DropdownSelector({
     id,
+    className = null,
     items,
     placeholder = 'Select an item',
 }: Props) {
@@ -34,7 +36,9 @@ export function DropdownSelector({
 
     return (
         <div
-            className={`hrnet_dropdownselector_positional_wrapper ${id}_positional_wrapper`}
+            className={`${
+                className && `${className} `
+            }hrnet_dropdownselector_positional_wrapper ${id}_positional_wrapper`}
         >
             <div
                 className={`hrnet_dropdownselector_wrapper ${id}_wrapper overload`}
