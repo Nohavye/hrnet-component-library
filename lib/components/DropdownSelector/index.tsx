@@ -1,16 +1,32 @@
 import './styles.css'
 import { useEffect, useState } from 'react'
 
+/**
+ * A set of CSS class names for styling different parts of the DropdownSelector component.
+ */
+type ClassNames = {
+    wrapper?: string
+    input?: string
+    items_wrapper?: string
+    item?: string
+}
+
+/**
+ * Props for the DropdownSelector component.
+ */
 type Props = {
     id: string
-    className?: string | null
+    classNames?: ClassNames | null
     items: Array<string>
     placeholder?: string
 }
 
+/**
+ * A dropdown selector component that allows users to select from a list of items.
+ */
 export function DropdownSelector({
     id,
-    className = null,
+    classNames = null,
     items,
     placeholder = 'Select an item',
 }: Props) {
@@ -18,34 +34,46 @@ export function DropdownSelector({
     const [isOpen, setIsOpen] = useState(false)
 
     useEffect(() => {
-        const wrapper = document.querySelector(
-            `.${id}_wrapper`
+        // Update the positional wrapper dimensions based on the wrapper element.
+        const wrapper = document.getElementById(
+            `${id}_wrapper`
         ) as HTMLDivElement
-        const positionalWrapper = document.querySelector(
-            `.${id}_positional_wrapper`
+        const positionalWrapper = document.getElementById(
+            `${id}_positional_wrapper`
         ) as HTMLDivElement
 
         positionalWrapper.style.width = `${wrapper.offsetWidth}px`
         positionalWrapper.style.height = `${wrapper.offsetHeight}px`
     }, [id])
 
+    /**
+     * Handle a click on an item in the dropdown.
+     * @param value - The selected item's value.
+     */
     const handleItemClick = (value: string) => {
         setSelectedValue(value)
         setIsOpen(!open)
     }
 
+    /**
+     * Constructs CSS class names.
+     *
+     * @param name - The key used to index the `classNames` object.
+     * @returns A string representing the combined CSS class name.
+     */
+    const handleClassName = <classname extends keyof ClassNames>(
+        name: classname
+    ): string =>
+        `${
+            classNames && classNames[name] ? `${classNames[name]} ` : ''
+        }hrnet_dropdownselector_${name}`
+
     return (
-        <div
-            className={`${
-                className && `${className} `
-            }hrnet_dropdownselector_positional_wrapper ${id}_positional_wrapper`}
-        >
-            <div
-                className={`hrnet_dropdownselector_wrapper ${id}_wrapper overload`}
-            >
+        <div id={`${id}_positional_wrapper`}>
+            <div id={`${id}_wrapper`} className={handleClassName('wrapper')}>
                 <input
                     id={id}
-                    className={`hrnet_dropdownselector_input ${id}_input overload`}
+                    className={handleClassName('input')}
                     type="text"
                     value={selectedValue}
                     readOnly
@@ -53,13 +81,11 @@ export function DropdownSelector({
                     onClick={() => setIsOpen(!isOpen)}
                 />
                 {isOpen && (
-                    <div
-                        className={`hrnet_dropdownselector_items_wrapper ${id}_items_wrapper overload`}
-                    >
+                    <div className={handleClassName('items_wrapper')}>
                         {items.map((item, index) => (
                             <span
                                 key={`${id}_item_${index}`}
-                                className={`hrnet_dropdownselector_item ${id}_item overload`}
+                                className={handleClassName('item')}
                                 onClick={() => handleItemClick(item)}
                             >
                                 {item}
