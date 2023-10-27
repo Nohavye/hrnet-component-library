@@ -35,9 +35,9 @@ yarn add @hrnet-org/hrnet-component-library
 
     #### Props:
 
-    -   `id: string` -> The ID of the dropdown input field.
+    -   `id: string` - The ID of the dropdown input field.
 
-    -   `classNames?: ClassNames | null` -> (Optional) Literal object used to define a CSS class for styling each element of the dropdown.
+    -   `classNames?: ClassNames | null` - (Optional) Literal object used to define a CSS class for styling each element of the dropdown.
         ```ts
         type ClassNames = {
             wrapper?: string
@@ -46,9 +46,9 @@ yarn add @hrnet-org/hrnet-component-library
             item?: string
         }
         ```
-    -   `items: Array<string>` -> The list of items to choose from.
+    -   `items: Array<string>` - The list of items to choose from.
 
-    -   `placeholder?: string` -> (Optional, default value: `'Select an item'`) The placeholder.
+    -   `placeholder?: string` - (Optional, default value: `'Select an item'`) The placeholder.
 
     #### Style:
 
