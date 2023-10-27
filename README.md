@@ -1,10 +1,31 @@
 # hrnet-component-library
 
-Library of React components created using `vite`.
+React component library for the HRnet application.
+
+## Prerequisites
+
+Before you begin, make sure you have the following prerequisites installed:
+
+-   [Node.js](https://nodejs.org/) (minimum recommended version: 16.14)
+-   [React](https://reactjs.org/) (minimum recommended version: 18.2.0)
+-   [React DOM](https://reactjs.org/docs/react-dom.html) (minimum recommended version: 18.2.0)
+-   Modern web browser (e.g., Chrome, Firefox, Safari)
 
 ## Installation
 
-Run the following command: `npm install @hrnet-org/hrnet-component-library`
+Run the following command :
+
+With npm :
+
+```bash
+npm install @hrnet-org/hrnet-component-library
+```
+
+Or yarn :
+
+```bash
+yarn add @hrnet-org/hrnet-component-library
+```
 
 ## List of components
 
