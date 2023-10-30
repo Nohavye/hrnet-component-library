@@ -33,7 +33,7 @@ yarn add @hrnet-org/hrnet-component-library
 
 -   `<DropdownSelector />`
 
-    #### Props:
+    #### Props :
 
     -   `id: string` - The ID of the dropdown input field.
 
@@ -48,13 +48,17 @@ yarn add @hrnet-org/hrnet-component-library
         ```
     -   `items: Array<string>` - The list of items to choose from.
 
+    -   `maxHeight?: number | null` - (Optional) Maximum dropdown height.
+
     -   `placeholder?: string` - (Optional, default value: `'Select an item'`) The placeholder.
 
-    #### Style:
+    #### Style :
 
     -   The component has a default CSS style. You can override this style using certain predefined CSS classes or through the `classNames` prop :
 
-    To style all the Dropdown components in your project, I recommend using the CSS class `hrnet_dropdownselector_{element}` replacing `{element}` with the name of the targeted item from this list:
+    ##### All the Dropdown :
+
+    To style all the Dropdown components in your project, I recommend using the CSS class `hrnet_dropdownselector_{element}` in conjunction with the CSS class `overload` replacing `{element}` with the name of the targeted item from this list:
 
     -   `wrapper` : The main container
     -   `input` : The dropdown input
@@ -64,15 +68,17 @@ yarn add @hrnet-org/hrnet-component-library
     Example :
 
     ```css
-    .hrnet_dropdownselector_wrapper {
+    .hrnet_dropdownselector_wrapper.overload {
         background-color: white;
         padding: 5px 10px;
     }
 
-    .hrnet_dropdownselector_input {
+    .hrnet_dropdownselector_input.overload {
         font-size: 16px;
     }
     ```
+
+    ##### A specific Dropdown :
 
     To style a specific Dropdown component, we will use the 'classNames' prop of the component, and I recommend using it with CSS modules, as shown in the example below :
 
@@ -97,6 +103,7 @@ yarn add @hrnet-org/hrnet-component-library
 
     ```jsx
     // index.jsx
+    import { DropdownSelector } from '@hrnet-org/hrnet-component-library'
     import styles from './styles.module.css'
 
     const MyDropDown = () => (
@@ -112,7 +119,7 @@ yarn add @hrnet-org/hrnet-component-library
     )
     ```
 
-    _NOTE : You can, of course, combine both methods, and the styling attribute's priority will depend on the order of CSS imports in your code._
+    _IMPORTANT : To make the magic happen, you should first import the Dropdown component before importing the CSS module._
 
     #### How to retrieve the value of my Dropdown component:
 

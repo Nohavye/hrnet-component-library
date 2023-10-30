@@ -1,0 +1,21 @@
+.wrapper {
+    background-color: #e0e0e0;
+    border: 1px solid #202020;
+    color: #202020;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.input {
+    font-size: 18px;
+    text-overflow: ellipsis;
+}
+
+.item {
+    padding: 10px 10px;
+    border-radius: 5px;
+}
+
+.item:hover {
+    background-color: #d0d0d0;
+}

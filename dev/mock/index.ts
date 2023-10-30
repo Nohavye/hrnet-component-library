@@ -13,5 +13,6 @@ export const DROPDOWN_SELECTOR = {
         'Kangourou',
         'Dauphin',
         'Papillon',
+        'Éléphant Kangourou',
     ],
 }

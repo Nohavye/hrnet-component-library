@@ -1,4 +1,8 @@
-import './styles.css'
+// Styles
+import * as priorityStyles from './priorityStyles'
+import defaultStyles from './defaultStyles.module.css'
+
+// Hooks
 import { useEffect, useState } from 'react'
 
 /**
@@ -18,6 +22,7 @@ type Props = {
     id: string
     classNames?: ClassNames | null
     items: Array<string>
+    maxHeight?: number | null
     placeholder?: string
 }
 
@@ -28,6 +33,7 @@ export function DropdownSelector({
     id,
     classNames = null,
     items,
+    maxHeight = null,
     placeholder = 'Select an item',
 }: Props) {
     const [selectedValue, setSelectedValue] = useState('')
@@ -64,16 +70,31 @@ export function DropdownSelector({
     const handleClassName = <classname extends keyof ClassNames>(
         name: classname
     ): string =>
-        `${
-            classNames && classNames[name] ? `${classNames[name]} ` : ''
-        }hrnet_dropdownselector_${name}`
+        `${classNames && classNames[name] ? `${classNames[name]} ` : ''}${
+            defaultStyles[name] ? `${defaultStyles[name]} ` : ''
+        }hrnet_dropdownselector_${name} overload`
 
     return (
-        <div id={`${id}_positional_wrapper`}>
-            <div id={`${id}_wrapper`} className={handleClassName('wrapper')}>
+        <div
+            id={`${id}_positional_wrapper`}
+            style={priorityStyles.POSITIONAL_WRAPPER}
+        >
+            <div
+                id={`${id}_wrapper`}
+                className={handleClassName('wrapper')}
+                style={
+                    maxHeight
+                        ? {
+                              ...priorityStyles.WRAPPER,
+                              ...{ maxHeight: `${maxHeight}px` },
+                          }
+                        : priorityStyles.WRAPPER
+                }
+            >
                 <input
                     id={id}
                     className={handleClassName('input')}
+                    style={priorityStyles.INPUT}
                     type="text"
                     value={selectedValue}
                     readOnly
@@ -81,7 +102,17 @@ export function DropdownSelector({
                     onClick={() => setIsOpen(!isOpen)}
                 />
                 {isOpen && (
-                    <div className={handleClassName('items_wrapper')}>
+                    <div
+                        className={handleClassName('items_wrapper')}
+                        style={
+                            maxHeight
+                                ? {
+                                      ...priorityStyles.ITEMS_WRAPPER,
+                                      ...priorityStyles.ITEM_WRAPPER_SCROLLING,
+                                  }
+                                : priorityStyles.ITEMS_WRAPPER
+                        }
+                    >
                         {items.map((item, index) => (
                             <span
                                 key={`${id}_item_${index}`}
