@@ -86,9 +86,17 @@ export function DropdownSelector({
                     maxHeight
                         ? {
                               ...priorityStyles.WRAPPER,
-                              ...{ maxHeight: `${maxHeight}px` },
+                              ...{
+                                  maxHeight: `${maxHeight}px`,
+                                  zIndex: `${isOpen ? '9999' : 'auto'}`,
+                              },
                           }
-                        : priorityStyles.WRAPPER
+                        : {
+                              ...priorityStyles.WRAPPER,
+                              ...{
+                                  zIndex: `${isOpen ? '9999' : 'auto'}`,
+                              },
+                          }
                 }
             >
                 <input
