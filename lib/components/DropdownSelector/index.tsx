@@ -40,6 +40,43 @@ export function DropdownSelector({
     const [isOpen, setIsOpen] = useState(false)
 
     useEffect(() => {
+        const input = document.getElementById(id) as HTMLInputElement
+        const wrapper = document.getElementById(
+            `${id}_wrapper`
+        ) as HTMLDivElement
+
+        let mouseIsInWrapper: boolean
+
+        const handleMouseEnter = () => {
+            mouseIsInWrapper = true
+        }
+
+        const handleMouseLeave = () => {
+            mouseIsInWrapper = false
+        }
+
+        const handleFocus = () => {
+            mouseIsInWrapper = true
+            wrapper.addEventListener('mouseenter', handleMouseEnter)
+            wrapper.addEventListener('mouseleave', handleMouseLeave)
+        }
+
+        const handleBlur = () => {
+            !mouseIsInWrapper && setIsOpen(false)
+            wrapper.removeEventListener('mouseenter', handleMouseEnter)
+            wrapper.removeEventListener('mouseleave', handleMouseLeave)
+        }
+
+        input.addEventListener('focus', handleFocus)
+        input.addEventListener('blur', handleBlur)
+
+        return () => {
+            input.removeEventListener('focus', handleFocus)
+            input.removeEventListener('blur', handleBlur)
+        }
+    }, [id])
+
+    useEffect(() => {
         // Update the positional wrapper dimensions based on the wrapper element.
         const wrapper = document.getElementById(
             `${id}_wrapper`
