@@ -28,6 +28,5 @@ export const ITEMS_WRAPPER: React.CSSProperties = {
 }
 
 export const ITEM_WRAPPER_SCROLLING: React.CSSProperties = {
-    paddingRight: '10px',
     overflow: 'scroll',
 }

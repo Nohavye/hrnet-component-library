@@ -12,6 +12,14 @@
     text-overflow: ellipsis;
 }
 
+.items_wrapper {
+    scrollbar-width: none;
+}
+
+.items_wrapper::-webkit-scrollbar {
+    display: none;
+}
+
 .item {
     padding: 10px 10px;
     border-radius: 5px;
