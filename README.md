@@ -11,6 +11,8 @@ Before you begin, make sure you have the following prerequisites installed:
 -   [React DOM](https://reactjs.org/docs/react-dom.html) (minimum recommended version: 18.2.0)
 -   Modern web browser (e.g., Chrome, Firefox, Safari)
 
+_NOTE: We strongly recommend using Visual Studio Code as your integrated development environment (IDE) for this project. It provides excellent support for JavaScript, TypeScript and web development._
+
 ## Installation
 
 Run the following command :
