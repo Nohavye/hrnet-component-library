@@ -1,4 +1,4 @@
-# hrnet-component-library
+# [hrnet-component-library](https://github.com/Nohavye/hrnet-component-library)
 
 React component library for the HRnet application.
 
