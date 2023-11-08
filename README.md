@@ -2,6 +2,8 @@
 
 React component library for the HRnet application.
 
+This project was initialized with [Vite](https://vitejs.dev/).
+
 ## Prerequisites
 
 Before you begin, make sure you have the following prerequisites installed:
@@ -34,6 +36,8 @@ yarn add @hrnet-org/hrnet-component-library
 ### Drop-down selector component
 
 -   `<DropdownSelector />`
+
+    This is a component designed to create a dropdown list that allows users to select an item from a list of articles.
 
     #### Props :
 
@@ -131,3 +135,28 @@ yarn add @hrnet-org/hrnet-component-library
     const dropDownInput = document.getElementById('country')
     const dropDownValue = dropDownInput.value
     ```
+
+## Development
+
+To get start with the development environment, follow these steps:
+
+### Installation
+
+1. Clone the repository.
+2. Install the necessary dependencies with command `yarn`.
+
+#### Prepare your development environment.
+
+The project is structured to facilitate the individual development of components.
+
+-   To choose the component to develop, edit the `dev/index.tsx` file.
+-   Define your mocked data and props components in the `dev/mock/index.ts` file.
+-   Edit or create component to the `lib/components` folder and save to test HMR.
+
+#### Running the Development Server
+
+To start the development server, run the following command: `yarn dev`.
+
+### Build the Library
+
+To build the library run the command: `yarn build`

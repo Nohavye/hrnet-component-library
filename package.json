@@ -12,7 +12,10 @@
         "dev": "vite",
         "build": "tsc --p ./tsconfig.build.json && vite build --emptyOutDir",
         "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-        "prepublishOnly": "yarn build"
+        "prepublishOnly": "yarn build",
+        "publish-major": "yarn version --major && yarn publish --access public",
+        "publish-minor": "yarn version --minor && yarn publish --access public",
+        "publish-patch": "yarn version --patch && yarn publish --access public"
     },
     "sideEffects": [
         "**/*.css"

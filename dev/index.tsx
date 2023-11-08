@@ -1,5 +1,5 @@
-import * as lib from '../../lib/main'
-import * as mock from '../mock'
+import * as lib from '../lib/main'
+import * as mock from './mock'
 
 // Component to develop
 export const TargetComponent = () => (

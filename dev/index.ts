@@ -1,1 +1,0 @@
-export { TargetComponent } from './target'

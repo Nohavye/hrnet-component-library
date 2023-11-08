@@ -9,20 +9,26 @@ import { useEffect, useState } from 'react'
  * A set of CSS class names for styling different parts of the DropdownSelector component.
  */
 type ClassNames = {
+    /** CSS class for the wrapper element. */
     wrapper?: string
+    /** CSS class for the input element. */
     input?: string
+    /** CSS class for the items wrapper element. */
     items_wrapper?: string
+    /** CSS class for individual item elements. */
     item?: string
 }
 
-/**
- * Props for the DropdownSelector component.
- */
 type Props = {
+    /** The unique identifier for the dropdown selector. */
     id: string
+    /** (Optional) CSS class names for custom styling. */
     classNames?: ClassNames | null
+    /** An array of string items to select from. */
     items: Array<string>
+    /** (Optional) maximum height for the dropdown items. */
     maxHeight?: number | null
+    /** (Optional) placeholder text for the input field. */
     placeholder?: string
 }
 
@@ -39,6 +45,10 @@ export function DropdownSelector({
     const [selectedValue, setSelectedValue] = useState('')
     const [isOpen, setIsOpen] = useState(false)
 
+    /**
+     * Sets up event listeners for handling focus and blur events on the input field
+     * and manages the opening and closing of the dropdown selector accordingly.
+     */
     useEffect(() => {
         const input = document.getElementById(id) as HTMLInputElement
         const wrapper = document.getElementById(
@@ -76,6 +86,9 @@ export function DropdownSelector({
         }
     }, [id])
 
+    /**
+     * Updates the dimensions of the positional wrapper based on the dimensions of the wrapper element.
+     */
     useEffect(() => {
         // Update the positional wrapper dimensions based on the wrapper element.
         const wrapper = document.getElementById(

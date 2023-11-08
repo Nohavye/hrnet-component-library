@@ -23,7 +23,7 @@ export function Viewer({ children }: Props) {
                 <div className="help">
                     <p>
                         To choose the component to develop, edit the{' '}
-                        <code>dev/target/index.tsx</code> file.
+                        <code>dev/index.tsx</code> file.
                     </p>
                     <p>
                         Define your mocked data and props components in the{' '}
