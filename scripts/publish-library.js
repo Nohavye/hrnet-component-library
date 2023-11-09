@@ -14,10 +14,10 @@ const argv = yargs(process.argv.slice(2))
     .version(false)
     .help().argv
 
-const update = () => {
-    exec(`yarn version --${argv.update}`, (error, stdout) => {
+const publish = () => {
+    exec('yarn publish --access public', (error, stdout) => {
         if (error) {
-            console.error(`Error incrementing version : ${error}`)
+            console.error(`Error while publishing : ${error}`)
             process.exit(1)
         }
         console.log(stdout)
@@ -31,23 +31,23 @@ const build = () => {
             process.exit(1)
         }
         console.log(stdout)
+        publish()
     })
 }
 
-const publish = () => {
-    exec('yarn publish --access public', (error, stdout) => {
+const update = () => {
+    exec(`yarn version --${argv.update}`, (error, stdout) => {
         if (error) {
-            console.error(`Error while publishing : ${error}`)
+            console.error(`Error incrementing version : ${error}`)
             process.exit(1)
         }
         console.log(stdout)
+        build()
     })
 }
 
 const proceed = () => {
     update()
-    build()
-    publish()
 }
 
 const rl = readline.createInterface({
