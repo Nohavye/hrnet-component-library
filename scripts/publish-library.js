@@ -3,6 +3,10 @@ import yargs from 'yargs/yargs'
 import process from 'process'
 import readline from 'readline'
 
+const redColor = '\x1b[31m'
+const greenColor = '\x1b[32m'
+const yellowColor = '\x1b[33m'
+
 const argv = yargs(process.argv.slice(2))
     .usage('Update package version and publish to the npm registry.')
     .option('update', {
@@ -15,6 +19,7 @@ const argv = yargs(process.argv.slice(2))
     .help().argv
 
 const publish = () => {
+    console.log(`\n${yellowColor}[ Publish ]`)
     exec('yarn publish --access public', (error, stdout) => {
         if (error) {
             console.error(`Error while publishing : ${error}`)
@@ -25,6 +30,7 @@ const publish = () => {
 }
 
 const build = () => {
+    console.log(`\n${greenColor}[ Build ]`)
     exec('yarn build', (error, stdout) => {
         if (error) {
             console.error(`Error while building : ${error}`)
@@ -36,6 +42,7 @@ const build = () => {
 }
 
 const update = () => {
+    console.log(`\n${redColor}[ Updating ]`)
     exec(`yarn version --${argv.update}`, (error, stdout) => {
         if (error) {
             console.error(`Error incrementing version : ${error}`)
