@@ -14,8 +14,8 @@ const argv = yargs(process.argv.slice(2))
     .version(false)
     .help().argv
 
-const updateVersion = (arg) => {
-    exec(`yarn version --${arg}`, (error, stdout) => {
+const update = () => {
+    exec(`yarn version --${argv.update}`, (error, stdout) => {
         if (error) {
             console.error(`Error incrementing version : ${error}`)
             process.exit(1)
@@ -34,19 +34,23 @@ const publish = () => {
     })
 }
 
+const proceed = () => {
+    update()
+    publish()
+}
+
 const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout,
 })
 
-function confirmation() {
+function confirm() {
     console.log(
         `\nYou are about to release a new ${argv.update} version of the library.`
     )
     rl.question('Do you want to continue? (yes/no) [no] : ', (answer) => {
         if (answer.toLowerCase() === 'yes' || answer.toLowerCase() === 'y') {
-            updateVersion(argv.update)
-            publish()
+            proceed()
             rl.close()
         } else if (
             !answer ||
@@ -57,9 +61,9 @@ function confirmation() {
             rl.close()
         } else {
             console.log('Invalid response. Please answer “yes” or “no”.')
-            confirmation()
+            confirm()
         }
     })
 }
 
-confirmation()
+confirm()
