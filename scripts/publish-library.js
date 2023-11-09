@@ -20,7 +20,7 @@ const argv = yargs(process.argv.slice(2))
     .help().argv
 
 const publish = () => {
-    console.log(`\n${yellowColor}[ Publish ]${resetColor}`)
+    console.log(`\n${yellowColor}[ Publish ]${resetColor}\n`)
     exec('yarn publish --access public', (error, stdout) => {
         if (error) {
             console.error(`Error while publishing : ${error}`)
@@ -31,7 +31,7 @@ const publish = () => {
 }
 
 const build = () => {
-    console.log(`\n${greenColor}[ Build ]${resetColor}`)
+    console.log(`\n${greenColor}[ Build ]${resetColor}\n`)
     exec('yarn build', (error, stdout) => {
         if (error) {
             console.error(`Error while building : ${error}`)
@@ -43,7 +43,7 @@ const build = () => {
 }
 
 const update = () => {
-    console.log(`\n${redColor}[ Updating ]${resetColor}`)
+    console.log(`\n${redColor}[ Updating ]${resetColor}\n`)
     exec(`yarn version --${argv.update}`, (error, stdout) => {
         if (error) {
             console.error(`Error incrementing version : ${error}`)
