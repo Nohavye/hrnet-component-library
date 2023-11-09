@@ -27,6 +27,7 @@ const publish = () => {
             process.exit(1)
         }
         console.log(stdout)
+        console.log(`${yellowColor}Publishing successful!${resetColor}`)
     })
 }
 
@@ -38,6 +39,7 @@ const build = () => {
             process.exit(1)
         }
         console.log(stdout)
+        console.log(`${greenColor}Building successful!${resetColor}`)
         publish()
     })
 }
@@ -50,6 +52,7 @@ const update = () => {
             process.exit(1)
         }
         console.log(stdout)
+        console.log(`${redColor}Updating successful!${resetColor}`)
         build()
     })
 }
