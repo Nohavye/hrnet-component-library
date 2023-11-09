@@ -24,6 +24,16 @@ const update = () => {
     })
 }
 
+const build = () => {
+    exec('yarn build', (error, stdout) => {
+        if (error) {
+            console.error(`Error while building : ${error}`)
+            process.exit(1)
+        }
+        console.log(stdout)
+    })
+}
+
 const publish = () => {
     exec('yarn publish --access public', (error, stdout) => {
         if (error) {
@@ -36,6 +46,7 @@ const publish = () => {
 
 const proceed = () => {
     update()
+    build()
     publish()
 }
 
