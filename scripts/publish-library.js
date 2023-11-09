@@ -3,6 +3,7 @@ import yargs from 'yargs/yargs'
 import process from 'process'
 import readline from 'readline'
 
+const resetColor = '\x1b[0m'
 const redColor = '\x1b[31m'
 const greenColor = '\x1b[32m'
 const yellowColor = '\x1b[33m'
@@ -19,7 +20,7 @@ const argv = yargs(process.argv.slice(2))
     .help().argv
 
 const publish = () => {
-    console.log(`\n${yellowColor}[ Publish ]`)
+    console.log(`\n${yellowColor}[ Publish ]${resetColor}`)
     exec('yarn publish --access public', (error, stdout) => {
         if (error) {
             console.error(`Error while publishing : ${error}`)
@@ -30,7 +31,7 @@ const publish = () => {
 }
 
 const build = () => {
-    console.log(`\n${greenColor}[ Build ]`)
+    console.log(`\n${greenColor}[ Build ]${resetColor}`)
     exec('yarn build', (error, stdout) => {
         if (error) {
             console.error(`Error while building : ${error}`)
@@ -42,7 +43,7 @@ const build = () => {
 }
 
 const update = () => {
-    console.log(`\n${redColor}[ Updating ]`)
+    console.log(`\n${redColor}[ Updating ]${resetColor}`)
     exec(`yarn version --${argv.update}`, (error, stdout) => {
         if (error) {
             console.error(`Error incrementing version : ${error}`)
