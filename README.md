@@ -4,6 +4,8 @@ React component library for the HRnet application.
 
 This project was initialized with [Vite](https://vitejs.dev/).
 
+_NOTE : This is a study project as part of the 'Front-end JavaScript React Application Developer' program at [OpenClassrooms](https://openclassrooms.com)._
+
 ## Prerequisites
 
 Before you begin, make sure you have the following prerequisites installed:
@@ -13,7 +15,7 @@ Before you begin, make sure you have the following prerequisites installed:
 -   [React DOM](https://reactjs.org/docs/react-dom.html) (minimum recommended version: 18.2.0)
 -   Modern web browser (e.g., Chrome, Firefox, Safari)
 
-_NOTE: We strongly recommend using Visual Studio Code as your integrated development environment (IDE) for this project. It provides excellent support for JavaScript, TypeScript and web development._
+_NOTE : We strongly recommend using Visual Studio Code as your integrated development environment (IDE) for this project. It provides excellent support for JavaScript, TypeScript and web development._
 
 ## Installation
 
@@ -31,7 +33,7 @@ Or yarn :
 yarn add @hrnet-org/hrnet-component-library
 ```
 
-## List of components
+## Components
 
 ### Drop-down selector component
 
@@ -160,3 +162,16 @@ To start the development server, run the following command: `yarn dev`.
 ### Build the Library
 
 To build the library run the command: `yarn build`
+
+### Publish the Library
+
+To publish a new version of the library to the npm registry, you can use the script 'publish-library' as follows: `yarn publish-library`.
+
+Without arguments, this first command will increment the patch version number by default, update the package build, and publish this new version to the npm registry.
+
+_NOTE : Make sure your local repository is clean before initiating this task. Once this is done, you'll need to push the new version listed in the `package.json` file to your Git repository._
+
+You can also publish a new minor or major version using the following commands:
+
+-   For a minor version : `yarn publish-library --update minor`
+-   For a major version : `yarn publish-library --update major`
